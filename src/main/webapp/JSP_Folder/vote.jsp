@@ -23,6 +23,13 @@
 </head>
 <body>
 
+	<%
+	response.setHeader("Cache-Control", "no-cache");
+	response.addHeader("Cache-Control", "no-store");
+	response.setHeader("Pragma", "no-cache");
+	response.setDateHeader("Expires", 1L);
+	%>
+	
    <%
    String id = request.getParameter("id");
    String pw = request.getParameter("pw");
