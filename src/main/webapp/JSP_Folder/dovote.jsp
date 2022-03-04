@@ -22,7 +22,8 @@
 	  link.linkDisconnect();
 	  if(c == 2){
 	  	response.sendRedirect("voteresult.jsp");
-	  }else{response.sendRedirect("fail.jsp");
+	  }else{
+		  response.sendRedirect("fail.jsp");
 	  }
 	  
 	%>
