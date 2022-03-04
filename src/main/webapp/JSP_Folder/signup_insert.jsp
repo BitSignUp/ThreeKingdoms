@@ -38,6 +38,8 @@
 	 
 	 else{
 	  int a = link.signUp(id, pwd, name, birth);
+	  link.linkDisconnect();
+	  
 	  if(a==1) {
 		  out.println("가입에 성공했습니다. ");
 		  url = "../main.jsp";

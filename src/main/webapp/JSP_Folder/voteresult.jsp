@@ -76,22 +76,21 @@
 		h1{text-align: center;}
 
 	</style>
-	<script type="text/javascript">
-		window.history.forward();
-		function noBack(){window.history.forward();}
-	</script>
 	
 	<title>voteresult</title>
 </head>
 <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 	<%
-		SqlLink sl = new SqlLink(); // DB 연결
 		request.setCharacterEncoding("UTF-8");
+
+		SqlLink sl = new SqlLink(); // DB 연결
 		double x = (double)sl.checkVoteCount(); //11
 		double cho = (double)sl.getChoCount(); //2
 		double po = (double)sl.getPoCount();
 		double you = (double)sl.getYouCount();
 		double sum = cho + po + you;
+		
+		sl.linkDisconnect();
 	%>
 
 	<%if(cho > po && cho > you){

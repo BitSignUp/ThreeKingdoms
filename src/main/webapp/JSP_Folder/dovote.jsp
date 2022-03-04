@@ -12,12 +12,14 @@
 </head>
 <body>
 	<%
-	  SqlLink link = new SqlLink();
 	  request.setCharacterEncoding("UTF-8");
 	  String a = request.getParameter("lecture");
 	  String b = request.getParameter("id");
 	  System.out.println(a + b);
+
+	  SqlLink link = new SqlLink();
 	  int c = link.doVote(a, b);
+	  link.linkDisconnect();
 	  if(c == 2){
 	  	response.sendRedirect("voteresult.jsp");
 	  }else{response.sendRedirect("fail.jsp");

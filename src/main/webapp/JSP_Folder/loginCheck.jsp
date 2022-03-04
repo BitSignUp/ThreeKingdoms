@@ -16,11 +16,14 @@ flex-direction: column;
 </style>
 <body>
  <%
-   SqlLink sl = new SqlLink(); // DB 연결
    request.setCharacterEncoding("UTF-8");
    String id = request.getParameter("id");
    String pw = request.getParameter("pw");
+
+   SqlLink sl = new SqlLink(); // DB 연결
    String name = sl.checkLogin(id, pw);
+   sl.linkDisconnect();
+   
    System.out.println(id + ", " + pw + ", " + name);
    
    if(name != null){
