@@ -169,7 +169,7 @@ public class SqlLink  {
 		   System.out.println("DB ¿¬°á¾ÈµÊ");
 		   return -1;
 	   }
-	   String sql = "select count(*) from members where voted = 1";
+	   String sql = "select count(*) from members";
 	   try {
 		   pstmt = conn.prepareStatement(sql);
 		   ResultSet rs = pstmt.executeQuery();
