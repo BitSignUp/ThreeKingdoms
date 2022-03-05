@@ -108,19 +108,19 @@ h1 {
 	<%if(cho > po && cho > you){
 
 		out.println("<div class='www'>");
-		out.println("<h1>초선 당선 유력</h1>");
+		out.println("<h1>초선 당선</h1>");
 		out.println("<image src='image/girl1.jpg' height='280' width='280'>");
 		out.println("</div>");
 	}%>
 	<%if(po > cho && po > you){
 		out.println("<div class='www'>");
-		out.println("<h1>여포 당선 유력</h1>");
+		out.println("<h1>여포 당선</h1>");
 		out.println("<image src='image/men1.jpg' height='280' width='280'>");
 		out.println("</div>");
 	}%>
 	<%if(you > cho && you > po){
 		out.println("<div class='www'>");
-		out.println("<h1>유비 당선 유력</h1>");
+		out.println("<h1>유비 당선</h1>");
 		out.println("<image src='image/men2.jpg' height='280' width='280'>");
 		out.println("</div>");
 	}%>

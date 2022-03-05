@@ -71,11 +71,11 @@
 
          <div class="item-group">
             <div class="input-item-center">
-               <label for="id">아이디</label> <input type="text" name="id" value="ksh" /><br />
+               <label for="id">아이디</label> <input type="text" name="id" /><br />
             </div>
 
             <div class="input-item-center">
-               <label for="pw">비밀번호</label> <input type="password" name="pw" value="1234" /><br />
+               <label for="pw">비밀번호</label> <input type="password" name="pw" /><br />
             </div>
             
             <div class="button-item-center">

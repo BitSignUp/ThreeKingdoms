@@ -96,6 +96,7 @@ public class SqlLink  {
 	      // String sql_select = "insert into vote(id, count) values( ?, ?)";
 	      String sql = "update vote set count=count+1 where name=?";  // 초선
 	      String sql_date = "update members set voted=voted+1 where id=?";  // 로그인 id
+	      // String sql_date = "update members set voted=true where id=?";  // 로그인 id
 	      int cnt = 0;
 	      int cntt = 0;
 	      try {
