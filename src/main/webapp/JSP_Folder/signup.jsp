@@ -31,8 +31,6 @@
    justify-content: center;
 }
 
-
-
 .input-item-center {
    display: flex;
    justify-content: center;
@@ -80,8 +78,6 @@ input[type="password"]{
    background-size: 300% 300%;
    text-decoration: none;
 }
-
-
 
 </style>
 

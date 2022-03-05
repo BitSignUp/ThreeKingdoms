@@ -1,6 +1,6 @@
 <%@page import="com.mysql.cj.protocol.a.BinaryResultsetReader"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@page import="Pack.SqlLink"%>
 
 <!DOCTYPE html>
@@ -13,20 +13,25 @@
 <body>
 	<%
 	  request.setCharacterEncoding("UTF-8");
-	  String a = request.getParameter("lecture");
-	  String b = request.getParameter("id");
-	  System.out.println(a + b);
 
+	
+	  String a = request.getParameter("lecture");
+	  /* String b = request.getParameter("id"); */
+	  String id = (String)session.getAttribute("id");
+	  
+	  
 	  SqlLink link = new SqlLink();
-	  int c = link.doVote(a, b);
+	  int success_cnt = link.doVote(a, id);
 	  link.linkDisconnect();
-	  if(c == 2){
-	  	response.sendRedirect("voteresult.jsp");
+	  
+	  
+	  if(success_cnt == 2){
+	  		response.sendRedirect("voteresult.jsp");
 	  }else{
 		  response.sendRedirect("fail.jsp");
 	  }
 	  
 	%>
-	
+
 </body>
 </html>
