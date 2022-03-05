@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>This is vote program</title>
-<link rel="stylesheet" type="text/css" href="../mycss.css">
 
+<link rel="stylesheet" type="text/css" href="../mycss.css">
 <style>
 .cheetah {
    width: 300px;
@@ -24,6 +24,7 @@
 <body>
 
 	<%
+	/* 뒤로가기 시 새 페이지로 불로오기 위함 */
 	response.setHeader("Cache-Control", "no-cache");
 	response.addHeader("Cache-Control", "no-store");
 	response.setHeader("Pragma", "no-cache");
@@ -31,17 +32,14 @@
 	%>
 	
    <%
-   String id = request.getParameter("id");
-   String pw = request.getParameter("pw");
+   String id = (String)session.getAttribute("id");
+   String pw = (String)session.getAttribute("pw");
 
    SqlLink sl = new SqlLink(); // DB 연결
-   String name = sl.checkLogin(id, pw);
+   /* String name = sl.checkLogin(id, pw); */
    int stop = sl.checkVoteCount();
    int voted = sl.isvoted(id, pw);
    sl.linkDisconnect();
-   
-   System.out.println(id + ", " + pw + ", " + name);
-   
    
    %>
 
@@ -80,7 +78,7 @@
 
      <fieldset class="cheetah">
          <legend>☞☜</legend>
-         <h3 style = "text-align : center;"> <%=id%>님 안녕하십니까 </h3>
+         <h3 style = "text-align : center;"> <%= id %>님 안녕하십니까 </h3>
             <!-- 로그인을 한경우 투표가능, else 회원가입이 필요합니다.  -->
             <%if(stop >= 23){
             %>
@@ -138,7 +136,7 @@
             <input type="image" src="image/3world.gif" border = "3" style = "width : 370px; height: 180px;">
             
             <!-- 투표자 id 넘겨주기 -->
-            <input type="hidden" name="id" value=<%=id%>>
+            <%-- <input type="hidden" name="id" value=<%=id%>> --%>
       </fieldset>
    </form>
    

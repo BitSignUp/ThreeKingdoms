@@ -91,6 +91,13 @@ public class SqlLink  {
 
    }
    
+   /**
+    * 후보자의 득표수를 1 증가시키고, 투표자의 투표여부를 1 증가시킨다.
+    * 만약, 두 쿼리 중 하나라도 실패한 경우 DB에 반영하지 않는다.
+    * @param name	후보자 명
+    * @param id		투표자 id
+    * @return		쿼리 성공 횟수 (DB에 row가 바뀐 개수)
+    */
    public int doVote(String name, String id) {
 	      System.out.println("투표완료");
 	      // String sql_select = "insert into vote(id, count) values( ?, ?)";
@@ -119,9 +126,6 @@ public class SqlLink  {
 	    	  conn.rollback();
 	    	  }catch (SQLException ex) {}
 	    	  e.printStackTrace();
-	         
-	    	  // 투표수 원래대로
-	    	  // 실패
 	         
 	         return -2;
 	      }
