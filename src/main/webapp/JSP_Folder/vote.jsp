@@ -41,6 +41,8 @@
    sl.linkDisconnect();
    
    System.out.println(id + ", " + pw + ", " + name);
+   
+   
    %>
 
    <form method="post" action="dovote.jsp" style = " display: flex; flex-direction: row;">
