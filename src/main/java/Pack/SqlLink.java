@@ -401,7 +401,30 @@ public class SqlLink  {
       return rs;
    }
 
-   
+   public Map<String, Object> getSetting() {
+	   System.out.println("getSetting Query Excute.");
+	   
+	   String sql = "select maxVoterNum, finishTime, isFinish from setting";
+	      Map<String,Object> map= new HashMap();
+	      ResultSet rs = null;
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+
+	         rs = pstmt.executeQuery();
+
+	         rs.next();
+	         map.put("maxVoterNum", rs.getInt("maxVoterNum"));	// INT
+	 	  	 map.put("finishTime", rs.getTimestamp("finishTime")); // YYYY-MM-DDT12:00:00
+	 	     map.put("isFinish", rs.getInt("isFinish")); // 0 OR 1
+	         
+
+	      } catch (SQLException e) { e.printStackTrace(); }
+	      
+	      System.out.println(map);
+	  		
+	      return map;
+	   
+   }
    
 
    

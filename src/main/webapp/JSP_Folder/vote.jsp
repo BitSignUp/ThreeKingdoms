@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="Pack.SqlLink"%>
@@ -59,7 +61,7 @@
 	int po = sl.getPoCount();
 	int you = sl.getYouCount();
 	int sum = cho + po + you;
-	sl.linkDisconnect();
+	
 	%>
 
 	<form method="post" action="dovote.jsp"
@@ -109,7 +111,14 @@
 			</h3>
 
 			<%
-			if(sum >= 200){  // 투표가 종료된 경우
+			Map<String, Object> map = sl.getSetting();
+			int maxNum = (int)map.get("maxVoterNum");
+			
+			Date finishTime = (Date)map.get("finishTime");
+			Date curDate = new Date(); // aws 가면 바뀔 수도 있으니까 확인하기!
+			
+			int isFinish = (int)map.get("isFinish");
+			if(sum >= maxNum || curDate.after(finishTime) || isFinish == 1){  // 투표가 종료된 경우
 				out.print("<h3 style='text-align:center;'> 투표가 종료되었습니다.</h3>");
 				out.print("<h3 style='text-align:center;'> 감사합니다. </h3>");
 				out.print("<input style='padding: 20px 106px 20px; font-size: 1.5rem'");
@@ -155,7 +164,7 @@
 
 
 
-
+<% sl.linkDisconnect(); %>
 </body>
 
 </html>
