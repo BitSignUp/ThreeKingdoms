@@ -16,7 +16,7 @@
 		
 			<div><button class = "btn" onclick="location.href='JSP_Folder/signup.jsp'"> 회원가입 </button></div> 
 			<div><button class = "btn" onclick="location.href='JSP_Folder/login.jsp'"> 로 그 인  </button></div>
-			<div><button class = "btn" onclick="location.href='JSP_Folder/voteresult.jsp'"> 투표결과  </button></div>
+			<div><button class = "btn" onclick="location.href='JSP_Folder/resultfinal.jsp'"> 투표결과  </button></div>
 
 		</div>
 		

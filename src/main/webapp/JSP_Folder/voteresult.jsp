@@ -105,6 +105,40 @@ h1 {
 		sl.linkDisconnect();
 	%>
 	
+	<!-- 동률 -->
+	<%if(cho == po && po == you){
+		out.println("<div class='www'>");
+		out.println("<h1> 완전 박빙! </h1>");
+		out.println("</div>");
+	}
+	%>
+	<%if(cho == po && po > you){
+		out.println("<div class='www'>");
+		out.println("<h1> 초선과 여포 박빙! </h1>");
+		out.println("<image src='image/girl1.jpg' height='280' width='280'>");
+		out.println("<image src='image/men1.jpg' height='280' width='280'>");
+		out.println("</div>");
+	}
+	%>
+	<%if(cho == you && you > po){
+		out.println("<div class='www'>");
+		out.println("<h1> 초선과 유비 박빙! </h1>");
+		out.println("<image src='image/girl1.jpg' height='280' width='280'>");
+		out.println("<image src='image/men2.jpg' height='280' width='280'>");
+		out.println("</div>");
+	}
+	%>
+	<%if(po == you && you > cho){
+		out.println("<div class='www'>");
+		out.println("<h1> 유비와 여포 박빙! </h1>");
+		out.println("<image src='image/men1.jpg' height='280' width='280'>");
+		out.println("<image src='image/men2.jpg' height='280' width='280'>");
+		out.println("</div>");
+	}
+	%>
+	
+	
+	<!-- 당선 유력 -->
 	<%if(cho > po && cho > you){
 
 		out.println("<div class='www'>");
