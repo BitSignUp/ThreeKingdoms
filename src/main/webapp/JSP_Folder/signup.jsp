@@ -83,33 +83,6 @@ input[type="password"]{
 
 </head>
 <body>
-	<script>
-		/* $(document).ready(function() {
-			$('.testId').click(function(){
-				console.log("13a");
-				var userIdCheck = RegExp(/^[A-Za-z0-9_\-]{5,20}$/);
-				if(userIdCheck.test($('.testId').val())){
-					alert("아이디");
-				}
-				else{
-		              return ;
-		        }
-			})
-		}); */
-		$(document).ready(function() {
-			$('.testId').click(function(){
-				var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
-		        if( !idReg.test( $("input[name=id]").val() ) ) {
-		            alert("아이디는 영문자로 시작하는 6~20자 영문자 또는 숫자이어야 합니다.");
-		            returnToPreviousPage();	
-		        }
-			})
-		});
-
-
-	</script>
-
-
 
    <form method="post" action = "signup_insert.jsp">
 
@@ -133,7 +106,7 @@ input[type="password"]{
    
             <div class="input-item-center">
                <label for="email">이름</label> 
-               <input type="text" name="name" pattern="[가-힣] {2,5}" maxlength="5" /><br />
+               <input type="text" name="name" /><br />
             </div>
    
        
