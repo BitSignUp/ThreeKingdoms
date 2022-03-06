@@ -2,10 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@  page import = "Pack.SqlLink" %>
 
-<link rel="stylesheet" type="text/css" href="../mycss.css">
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="../mycss.css">
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
 	body{flex-direction : column}
 </style>
