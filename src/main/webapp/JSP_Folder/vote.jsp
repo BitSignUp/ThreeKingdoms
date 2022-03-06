@@ -66,7 +66,6 @@
 
    <form method="post" action="dovote.jsp"
       style="display: flex; flex-direction: row;">
-
       <fieldset class="cheetah">
          <legend>초선</legend>
          <div id="girl1" contentEditable='true'>
@@ -109,7 +108,9 @@
          <h3 style="text-align: center;">
             <%=id%>님 안녕하십니까
          </h3>
-
+         <image src="image/banner.png" 
+               style="width : 250px; height: 70px; padding: 0px 58px 0px">
+      
          <%
          Map<String, Object> map = sl.getSetting();
          int maxNum = (int)map.get("maxVoterNum");
@@ -126,23 +127,23 @@
             out.print("onclick=location.href='resultfinal.jsp'>");
          }else{   // 투표가 종료되지 않았을때
             if(id != null && voted == 0){ %>
-               <input style="padding: 20px 106px 20px; font-size: 1.5rem"
+               <input style="padding: 10px 106px 10px; font-size: 1.5rem"
                class="btn" type="submit" value="투표하기"
                onclick="alert('투표가완료되었습니다. 앙 감사합니다.')">
-               <input style='padding: 20px 106px 20px; font-size: 1.5rem'
+               <input style='padding: 10px 106px 10px; font-size: 1.5rem'
                class='btn' type='button' value='투표현황'
                onclick="alert('투표를 해주세요. 앙 감사합니다.')">
             <%}else if (id != null && voted > 0){%>
-               <input style="padding: 20px 106px 20px; font-size: 1.5rem"
+               <input style="padding: 10px 106px 10px; font-size: 1.5rem"
                class="btn" type="button" value="투표하기"
                onclick="alert('이미 투표를 하셨습니다. 앙 감사합니다.')">
-               <input style='padding: 20px 106px 20px; font-size: 1.5rem'
+               <input style='padding: 10px 106px 10px; font-size: 1.5rem'
                class='btn' type='button' value='투표현황'
                onclick="location.href='voteresult.jsp'">
             <%}else if (id == null){%>
-               <input style="padding: 20px 106px 20px; font-size: 1.5rem"
+               <input style="padding: 10px 106px 10px; font-size: 1.5rem"
                class="btn go_login" type="button" value="투표하기">
-               <input style='padding: 20px 106px 20px; font-size: 1.5rem'
+               <input style='padding: 10px 106px 10px; font-size: 1.5rem'
                class='btn go_login' type='button' value='투표현황'>
             <%}
             /* out.print("<input style='padding: 20px 106px 20px; font-size: 1.5rem'");
@@ -155,7 +156,7 @@
 
          <!-- 삼국지이미지.gif 출력 -->
          <input type="image" src="image/3world.gif" border="3"
-            style="width: 370px; height: 180px;">
+            style="width: 370px; height: 150px;">
 
          <!-- 투표자 id 넘겨주기 -->
          <input type="hidden" name="id" value=<%= id %>>
@@ -168,4 +169,3 @@
 </body>
 
 </html>
-

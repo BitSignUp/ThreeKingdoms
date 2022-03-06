@@ -1,3 +1,6 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.Date"%>
+<%@page import="Pack.SqlLink"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -65,7 +68,13 @@
 	<title>Login</title>
 </head>
 <body>
-	
+	<%
+	   SqlLink sl = new SqlLink(); // DB 연결
+	   Map<String, Object> map = sl.getSetting();
+       int maxNum = (int)map.get("maxVoterNum");
+       
+       Date finishTime = (Date)map.get("finishTime");
+	%>
 	<form method="post" action="loginCheck.jsp">
 
 		<fieldset id="regbox">
@@ -83,7 +92,8 @@
 
 				<div class="button-item-center">
 					<input class="btn" type="submit" style="margin-right: 10px;"
-						value="로그인"> <input class="btn" type="button" value="돌아가기"
+						value="로그인" onclick="alert('<%= finishTime%>이 지나거나 \n모든 인원이 투표를 완료하면 투표는 종료됩니다.')">
+					<input class="btn" type="button" value="돌아가기"
 						onclick="location.href='../main.jsp'">
 				</div>
 			</div>
