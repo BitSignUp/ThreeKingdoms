@@ -1,3 +1,4 @@
+<%@page import="java.text.ParseException"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
@@ -23,7 +24,9 @@
 <style type="text/css">
 
 
-
+body{
+	flex-direction: column;
+}
 
 #regbox {
    width: 400px;
@@ -99,12 +102,36 @@ if(isApply != null && isApply.equals("apply")){
 	System.out.println("데이터 내용 : " + maxVoterNum + ", " + finishTime + ", " + isFinish);
 
 	if(maxVoterNum != null && finishTime != null && isFinish != null) {
-		int maxVoterNumInt = Integer.parseInt(maxVoterNum);
-		int isFinishInt    = Integer.parseInt(isFinish);
 		
-		SqlLink sl = new SqlLink();
-		sl.setSetting(maxVoterNumInt, finishTime, isFinishInt);
-		sl.linkDisconnect();
+		// 예외처리
+		try{
+			int maxVoterNumInt = Integer.parseInt(maxVoterNum);
+			int isFinishInt    = Integer.parseInt(isFinish);
+			
+		    SimpleDateFormat  dateFormat = new  SimpleDateFormat("yyyy-MM-dd");
+	        dateFormat.setLenient(false);
+	        dateFormat.parse(finishTime);			
+		
+			if(isFinishInt < 0 || isFinishInt > 1) return;	
+	        
+	        SqlLink sl = new SqlLink();
+			sl.setSetting(maxVoterNumInt, finishTime, isFinishInt);
+			sl.linkDisconnect();
+			
+		} catch (ParseException e){ 
+			e.printStackTrace();
+			
+			out.println(getWarningText("올바른 값을 입력해주세요."));
+			out.println(getBackButton());
+			return; 
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			out.println(getWarningText("올바른 값을 입력해주세요."));
+			out.println(getBackButton());
+			return;
+		}
+		
 	}	
 }
 
@@ -120,6 +147,27 @@ sl.linkDisconnect();
 System.out.println("page : " + maxVoterNum + ", " + finishTime + ", " + isFinish);
 %>
 
+<%!
+public String getWarningText(String text){
+	return
+			"<div>"+ text +"</div>"
+			;
+}
+
+public String getBackButton(){
+	return
+		  "<div>"
+		+     "<input class=\"btn\" type=\"button\" onclick=\"goMainPage()\" value=\"돌아가기\" />"
+		+     "<script>"
+		+        "function goMainPage() {"
+		+        "location.href= \"3world.jsp\" ;"
+		+        "}"
+		+     "</script>"
+		+ "</div>"
+		;
+}
+
+%>
 
    <form method="post" action = "3worldMain.jsp">
 
