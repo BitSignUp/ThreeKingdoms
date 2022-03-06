@@ -17,7 +17,7 @@
 
 
 <title>Sign up</title>	
-
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style type="text/css">
 
 
@@ -83,7 +83,31 @@ input[type="password"]{
 
 </head>
 <body>
+	<script>
+		/* $(document).ready(function() {
+			$('.testId').click(function(){
+				console.log("13a");
+				var userIdCheck = RegExp(/^[A-Za-z0-9_\-]{5,20}$/);
+				if(userIdCheck.test($('.testId').val())){
+					alert("아이디");
+				}
+				else{
+		              return ;
+		        }
+			})
+		}); */
+		$(document).ready(function() {
+			$('.testId').click(function(){
+				var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
+		        if( !idReg.test( $("input[name=id]").val() ) ) {
+		            alert("아이디는 영문자로 시작하는 6~20자 영문자 또는 숫자이어야 합니다.");
+		            returnToPreviousPage();	
+		        }
+			})
+		});
 
+
+	</script>
 
 
 
@@ -97,23 +121,25 @@ input[type="password"]{
    
             <div class="input-item-center">
                <label for="id">아이디</label> 
-               <input type="text" name="id" /><br />
+               <input type="text" name="id" id="id" placeholder="4자리 이상 아이디" pattern="^[A-Za-z0-9]{4,15}" 
+               maxlength="15" /><br />
             </div>     
    
             <div class="input-item-center">
                <label for="pw">비밀번호</label> 
-               <input type="password" name="pw" /><br />
+               <input type="password" name="pw" placeholder="영어와 숫자만 입력" pattern="^[a-zA-Z0-9]{4,15}" 
+               maxlength="15"/><br />
             </div>
    
             <div class="input-item-center">
                <label for="email">이름</label> 
-               <input type="text" name="name" /><br />
+               <input type="text" name="name" pattern="[가-힣] {2,5}" maxlength="5" /><br />
             </div>
    
        
             <div class="input-item-center">
                <label for="birth">생년월일</label> 
-               <input type="date" name="birth" /><br />
+               <input type="date" name="birth" max="2000-12-31"/><br />
             </div>
             <div class="button-item-center">
                <input class="btn" type="submit" value="가입">
