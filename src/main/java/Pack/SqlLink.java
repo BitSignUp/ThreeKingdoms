@@ -2,6 +2,7 @@ package Pack;
 
 import java.sql.*;
 import java.util.*;
+import java.util.Date;
 
 public class SqlLink  {
    static Connection conn = null;
@@ -427,7 +428,51 @@ public class SqlLink  {
    }
    
 
+
+   public int setSetting(int maxVoterNum, String finishTime, int isFinish) {
+	   String sql = "update setting set maxVoterNum=?, finishTime='" + finishTime +"', isFinish=?";
+//	   String sql = "update setting set maxVoterNum=?, isFinish=?";
+	      int cnt = 0;
+	      try {
+	    	  
+//	    	  String으로 날짜 넣지 말고 Date로 형변환 시켜서 넣기
+//	    	  java.sql.Date date1 = java.sql.Date.valueOf(finishTime);
+	    	  
+	         pstmt = conn.prepareStatement(sql);
+	         
+	         pstmt.setInt(1, maxVoterNum);
+//	         pstmt.setDate(2, date1);
+	         pstmt.setInt(2, isFinish);
+
+	         cnt = pstmt.executeUpdate();
+	      } catch (SQLException e) { e.printStackTrace(); }
+
+	      return cnt;
+   }
    
+
+   public String checkManagersLogin(String id, String pw) {
+
+	      if(!isConnected()) {
+	            System.out.println("DB 연결안됨");
+	            return null;
+	         }
+	      
+	      String sql = "select name from managers where id='"+ id +"' and pw='" + pw + "'";
+	      String name = null;
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+	         ResultSet rs = pstmt.executeQuery();
+
+	         while(rs.next()){
+	            name = rs.getString("name");
+	         }
+	         
+	      } catch (SQLException e) { e.printStackTrace(); }
+	      
+	      return name;
+   }
+
 
    
 }
