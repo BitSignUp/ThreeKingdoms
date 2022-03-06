@@ -70,23 +70,23 @@
 		<fieldset class="cheetah">
 			<legend>초선</legend>
 			<div id="girl1" contentEditable='true'>
-				<image src="image/girl1.jpg" border="3"
-					style="width : 300px; height: 500px;">
+				<image src="image/girl1.jpg" border="3" for="cho"
+					style="width : 300px; height: 500px; cursor:default; -webkit-user-drag: none;">
 			</div>
 			<div>
-				<label><input type="radio" name="lecture" value="초선" checked>
+				<label><input type="radio" id="cho" name="lecture" value="초선" checked>
 					초선에게투표</label> <br>
 			</div>
 		</fieldset>
 
 		<fieldset class="cheetah">
 			<legend>여포</legend>
-			<div id="men1" contentEditable='true'>
-				<image src="image/men1.jpg" border="3"
-					style="width : 300px; height: 500px;">
+			<div id="men1" contentEditable='true' >
+				<image src="image/men1.jpg" border="3" for="yo"
+					style="width : 300px; height: 500px; cursor:default; -webkit-user-drag: none;">
 			</div>
 			<div>
-				<label><input type="radio" name="lecture" value="여포" checked>
+				<label><input type="radio" id="yo" name="lecture" value="여포" checked>
 					여포에게투표</label> <br>
 			</div>
 		</fieldset>
@@ -94,11 +94,11 @@
 		<fieldset class="cheetah">
 			<legend>유비</legend>
 			<div id="man2" contentEditable='true'>
-				<image src="image/men2.jpg" border="3"
-					style="width : 300px; height: 500px;">
+				<image src="image/men2.jpg" border="3" for="uu"
+					style="width : 300px; height: 500px; cursor:default; -webkit-user-drag: none;">
 			</div>
 			<div>
-				<label><input type="radio" name="lecture" value="유비" checked>
+				<label><input type="radio" id="uu" name="lecture" value="유비" checked>
 					유비에게투표</label> <br>
 			</div>
 
@@ -155,7 +155,7 @@
 
 			<!-- 삼국지이미지.gif 출력 -->
 			<input type="image" src="image/3world.gif" border="3"
-				style="width: 370px; height: 180px;">
+				style="width: 370px; height: 180px; -webkit-user-drag: none;">
 
 			<!-- 투표자 id 넘겨주기 -->
 			<input type="hidden" name="id" value=<%= id %>>
