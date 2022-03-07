@@ -102,12 +102,27 @@ public class SqlLink  {
    public int doVote(String name, String id) {
 	      System.out.println("투표완료");
 	      // String sql_select = "insert into vote(id, count) values( ?, ?)";
+	      String sql_select = "select voted from members where id=?";
 	      String sql = "update vote set count=count+1 where name=?";  // 초선
 	      String sql_date = "update members set voted=voted+1 where id=?";  // 로그인 id
 	      // String sql_date = "update members set voted=true where id=?";  // 로그인 id
 	      int cnt = 0;
 	      int cntt = 0;
 	      try {
+	    	  
+	    	  // 투표 했는지 검사
+	    	  int voted = 0;
+	    	 pstmt = conn.prepareStatement(sql_select);
+	    	 pstmt.setString(1, id);  
+		     ResultSet rs = pstmt.executeQuery();
+	         while(rs.next()){
+	        	 voted = rs.getInt("voted");
+	         }
+	         // 투표 한 경우
+	         if(voted > 0) {
+	        	 return -1;
+	         }
+	    	  
 	    	 conn.setAutoCommit(false);
 	    	 // 후보 투표수 1증가
 	         pstmt = conn.prepareStatement(sql);

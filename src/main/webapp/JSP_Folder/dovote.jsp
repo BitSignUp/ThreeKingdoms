@@ -27,7 +27,11 @@
 	  
 	  if(success_cnt == 2){
 	  		response.sendRedirect("voteresult.jsp");
-	  }else{
+	  }
+	  else if(success_cnt == -1){
+		  response.sendRedirect("fail.jsp");
+	  }
+	  else{
 		  response.sendRedirect("fail.jsp");
 	  }
 	  
