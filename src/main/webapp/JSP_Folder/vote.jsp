@@ -166,7 +166,7 @@ cursor: default;
 
          <!-- 삼국지이미지.gif 출력 -->
          <input type="image" src="image/3world.gif" border="3"
-            style="width: 370px; height: 150px;">
+            style="width: 370px; height: 150px; pointer-events: none; ">
 
          <!-- 투표자 id 넘겨주기 -->
          <input type="hidden" name="id" value=<%= id %>>
