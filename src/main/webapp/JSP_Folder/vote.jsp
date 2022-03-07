@@ -22,6 +22,15 @@
    border: 1px solid rgba(223, 190, 106, 0.3);
    border: 2px groove(internal value);
 }
+
+img{
+	cursor: default;
+	-webkit-user-drag: none;
+}
+input[type="image"]{
+cursor: default;
+	-webkit-user-drag: none;
+}
 </style>
 
 
@@ -70,7 +79,7 @@
       <fieldset class="cheetah">
          <legend>초선</legend>
          <div id="girl1" contentEditable='true'>
-            <image src="image/girl1.jpg" border="3"
+            <img src="image/girl1.jpg" border="3"
                style="width : 300px; height: 500px;">
          </div>
          <div>
@@ -82,7 +91,7 @@
       <fieldset class="cheetah">
          <legend>여포</legend>
          <div id="men1" contentEditable='true'>
-            <image src="image/men1.jpg" border="3"
+            <img src="image/men1.jpg" border="3"
                style="width : 300px; height: 500px;">
          </div>
          <div>
@@ -109,7 +118,7 @@
          <h3 style="text-align: center;">
             <%=id%>님 안녕하십니까
          </h3>
-         <image src="image/banner.png" 
+         <img src="image/banner.png" 
                style="width : 250px; height: 70px; padding: 0px 58px 0px">
       
          <%
