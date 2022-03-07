@@ -6,6 +6,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="../mycss.css">
+<link rel="icon" href="https://board.jinhak.com/BoardV1/Upload/Job/Company/CI/185841.jpg">
 <%@ page import = "java.sql.*" %>
 <%@ page import = "java.util.*" %>
 <%@ page import = "java.io.IOException" %>

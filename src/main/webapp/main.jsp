@@ -9,6 +9,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 	<link rel="stylesheet" type="text/css" href="mycss.css">
+	<link rel="icon" href="https://board.jinhak.com/BoardV1/Upload/Job/Company/CI/185841.jpg">
 	<title>Bit World</title>
 </head>
 <body>

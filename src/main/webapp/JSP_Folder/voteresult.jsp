@@ -9,6 +9,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../mycss.css">
+<link rel="icon" href="https://board.jinhak.com/BoardV1/Upload/Job/Company/CI/185841.jpg">
 <style>
 html {
 	height: 95%;

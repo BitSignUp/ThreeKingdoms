@@ -11,6 +11,7 @@
 <title>This is vote program</title>
 
 <link rel="stylesheet" type="text/css" href="../mycss.css">
+<link rel="icon" href="https://board.jinhak.com/BoardV1/Upload/Job/Company/CI/185841.jpg">
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"> 
 </script>
 
